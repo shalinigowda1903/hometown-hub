@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Hometown Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+
+  <header class="dashboard-topbar">
+    <div class="dashboard-breadcrumbs">
+      <button class="icon-button" type="button" aria-label="Toggle sidebar" aria-expanded="false">☰</button>
+      <div class="dashboard-crumbs">
+        <span>Back to</span>
+        <strong>Dashboard</strong>
+        <span class="crumb-separator">•</span>
+        <span>Projects</span>
+        <span class="crumb-separator">•</span>
+        <span>Digital Community Platform</span>
+      </div>
+    </div>
+
+    <div class="dashboard-user-actions">
+      <span class="dashboard-user-chip">
+        <span class="avatar avatar-green">👤</span>
+        <span id="welcomeName">Member</span>
+      </span>
+      <button class="btn btn-light" type="button" id="logoutBtn">Log out</button>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="profile-mini">
+        <span class="avatar avatar-green">🏡</span>
+        <strong id="welcomeNameCard">Community Member</strong>
+        <small id="welcomeTown">Your Hometown</small>
+      </div>
+
+      <nav style="margin-top: 18px;">
+        <a class="side-link active" href="dashboard.html">Home feed</a>
+        <a class="side-link" href="#communityCard">My communities</a>
+        <a class="side-link" href="#eventsCard">Local events</a>
+        <a class="side-link" href="#notificationsCard">Notifications</a>
+      </nav>
+    </aside>
+
+    <section class="feed">
+      <div class="feed-heading">
+        <div>
+          <p>Hometown Hub</p>
+          <h1 id="townTitle">Community Feed</h1>
+        </div>
+        <span class="online-pill">Live community</span>
+      </div>
+
+      <div class="post-composer">
+        <div class="composer-head">
+          <span class="avatar avatar-green">👤</span>
+          <div>
+            <h3 id="welcomeNameComposer">Your name</h3>
+            <small>Posting to <span id="welcomeTownPost">Your hometown</span></small>
+          </div>
+        </div>
+
+        <form id="postForm">
+          <textarea id="postText" maxlength="5000" required placeholder="Share a local update, announcement, event idea, or community message..."></textarea>
+          <div class="composer-bottom">
+            <span>Keep your neighbours informed</span>
+            <button class="btn btn-primary" type="submit">Post update</button>
+          </div>
+        </form>
+      </div>
+
+      <p class="form-message feed-message" id="feedMessage" role="status" aria-live="polite"></p>
+      <div id="postsList"></div>
+    </section>
+
+    <aside class="rightbar">
+      <div class="side-card" id="communityCard">
+        <h3>Community snapshot</h3>
+        <p>You are part of the <strong id="communityName">your hometown</strong> community.</p>
+      </div>
+
+      <div class="side-card" id="eventsCard">
+        <h3>Local events</h3>
+        <p>No events have been added yet.</p>
+      </div>
+
+      <div class="side-card" id="notificationsCard">
+        <h3>Notifications</h3>
+        <p>You’re all caught up.</p>
+      </div>
+    </aside>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
