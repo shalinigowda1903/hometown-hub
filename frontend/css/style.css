@@ -413,14 +413,120 @@ a {
   gap: 8px;
 }
 
+.dashboard-list {
+  list-style: none;
+  padding: 0 !important;
+}
+
+.dashboard-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dashboard-list li > span:last-child {
+  min-width: 0;
+}
+
+.dashboard-list strong,
+.dashboard-list small {
+  display: block;
+}
+
+.dashboard-list strong {
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.dashboard-list small {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.community-list {
+  gap: 14px !important;
+}
+
+.community-list-icon {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  background: var(--mint);
+  border-radius: 9px;
+}
+
+.event-list {
+  padding: 0 !important;
+}
+
+.dashboard-event-date {
+  width: 42px;
+  min-width: 42px;
+  border-radius: 9px;
+  background: var(--mint);
+  color: var(--green);
+  padding: 5px;
+  text-align: center;
+}
+
+.dashboard-event-date strong {
+  color: var(--green);
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.dashboard-event-date small {
+  margin: 0;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.notification-list {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px !important;
+}
+
+.notification-list li {
+  display: block;
+  border-bottom: 1px solid var(--line);
+  padding: 0 0 10px;
+  overflow-wrap: anywhere;
+}
+
+.notification-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.notification-list li > span {
+  display: block;
+  color: #495d56;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.notification-list .notification-empty {
+  color: var(--muted);
+  font-size: 11px;
+}
+
 @media(max-width:900px) {
   .dashboard-shell {
     grid-template-columns: 1fr;
   }
 
-  .sidebar,
-  .rightbar {
+  .sidebar {
     display: none;
+  }
+
+  .rightbar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    align-items: start;
   }
 
   .sidebar.is-open {
@@ -1184,10 +1290,6 @@ h1, h2, h3, p {
 
   .dashboard-layout {
     grid-template-columns: 1fr 2fr;
-  }
-
-  .rightbar {
-    display: none;
   }
 
   .sidebar {

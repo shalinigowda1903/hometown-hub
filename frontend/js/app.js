@@ -111,6 +111,33 @@ const formatDate = (date) => {
   return Number.isNaN(value.getTime()) ? date : value.toLocaleString();
 };
 
+const notificationsList = document.getElementById("notificationsList");
+
+const renderNotifications = (posts) => {
+  if (!notificationsList) return;
+  notificationsList.replaceChildren();
+
+  if (!posts.length) {
+    const emptyState = document.createElement("li");
+    emptyState.className = "notification-empty";
+    emptyState.textContent = "No community updates yet.";
+    notificationsList.append(emptyState);
+    return;
+  }
+
+  posts.forEach((post) => {
+    const notification = document.createElement("li");
+    const title = document.createElement("strong");
+    title.textContent = `${post.author} shared an update`;
+    const text = document.createElement("span");
+    text.textContent = post.text;
+    const date = document.createElement("small");
+    date.textContent = formatDate(post.date);
+    notification.append(title, text, date);
+    notificationsList.append(notification);
+  });
+};
+
 const renderPosts = (posts, openCommentIds = new Set()) => {
   if (!postsList) return;
   postsList.replaceChildren();
@@ -240,10 +267,13 @@ const loadPosts = async (openCommentIds = new Set()) => {
   if (!postsList) return;
   try {
     const result = await request("/posts");
-    renderPosts(result.posts || [], openCommentIds);
+    const posts = result.posts || [];
+    renderPosts(posts, openCommentIds);
+    renderNotifications(posts);
     showMessage(feedMessage, "");
   } catch (error) {
     renderPosts([]);
+    renderNotifications([]);
     showMessage(feedMessage, error.message, true);
   }
 };

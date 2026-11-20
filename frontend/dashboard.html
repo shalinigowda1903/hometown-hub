@@ -79,18 +79,38 @@
 
     <aside class="rightbar">
       <div class="side-card" id="communityCard">
-        <h3>Community snapshot</h3>
-        <p>You are part of the <strong id="communityName">your hometown</strong> community.</p>
+        <h3>All communities</h3>
+        <ul class="dashboard-list community-list">
+          <li>
+            <span class="community-list-icon">🏡</span>
+            <span><strong id="communityName">My Village</strong><small>Neighbourhood updates</small></span>
+          </li>
+          <li>
+            <span class="community-list-icon">🎓</span>
+            <span><strong>Alumni Network</strong><small>Education and memories</small></span>
+          </li>
+          <li>
+            <span class="community-list-icon">🌱</span>
+            <span><strong>Local Initiatives</strong><small>Community projects</small></span>
+          </li>
+        </ul>
       </div>
 
       <div class="side-card" id="eventsCard">
         <h3>Local events</h3>
-        <p>No events have been added yet.</p>
+        <ul class="dashboard-list event-list">
+          <li>
+            <span class="dashboard-event-date"><strong>25</strong><small>NOV</small></span>
+            <span><strong>Neighbourhood meet-up</strong><small>Meet neighbours and share ideas for a better community.</small></span>
+          </li>
+        </ul>
       </div>
 
       <div class="side-card" id="notificationsCard">
         <h3>Notifications</h3>
-        <p>You’re all caught up.</p>
+        <ul class="dashboard-list notification-list" id="notificationsList" aria-live="polite">
+          <li class="notification-empty">Loading community updates...</li>
+        </ul>
       </div>
     </aside>
   </main>
